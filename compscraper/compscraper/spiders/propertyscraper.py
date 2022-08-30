@@ -14,7 +14,6 @@ class PropertyScraper(scrapy.Spider):
     gc = gspread.service_account(filename="property.json")
     sh = gc.open('property').sheet1
 
-
     def parse(self, response):
         items = response.css('div.uc-listingPhotoCard')
         for item in items:
@@ -74,7 +73,7 @@ class PropertyScraper(scrapy.Spider):
         for data in spider.all_items:
             row_index += 1
             spider.sh.insert_row(list(data.values()), row_index)
-            time.sleep(1)
+            time.sleep(5)
 
 
 
