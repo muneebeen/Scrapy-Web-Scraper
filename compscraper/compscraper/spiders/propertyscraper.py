@@ -11,7 +11,7 @@ class PropertyScraper(scrapy.Spider):
     start_urls = ['https://www.compass.com/homes-for-sale/detroit-mi-48221/locations=9009/price.min=50K/keywords=tenant/listing-type=mls,fsbo/beds.min=3/property-type=single-family,multi-family/']
     page_number = 40
     all_items = list()
-    gc = gspread.service_account(filename="property.json")
+    gc = gspread.service_account(filename="")
     sh = gc.open('property').sheet1
 
     def parse(self, response):
